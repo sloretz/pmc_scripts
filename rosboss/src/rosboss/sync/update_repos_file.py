@@ -10,7 +10,8 @@ import requests
 import yaml
 from rosdistro import get_distribution_file, get_index, get_index_url
 
-from rosboss.ui import display_and_interactive_copy, pretty_command
+from rosboss.internal.git import clone_repository
+from rosboss.internal.ui import display_and_interactive_copy, pretty_command
 
 
 @cache
@@ -124,11 +125,7 @@ def parse_pins(pin_args):
 
 def clone_ros2_repo(rosdistro):
     """Clone the ros2/ros2 repository into current directory on {rosdistro}-release branch."""
-    target_branch = f"{rosdistro}-release"
-    try:
-        pretty_command(['git', 'clone', '-b', target_branch, 'git@github.com:ros2/ros2.git', '.'])
-    except subprocess.CalledProcessError as e:
-        raise RuntimeError(f"Failed to clone ros2/ros2 branch '{target_branch}': {e}") from e
+    clone_repository("git@github.com:ros2/ros2.git", branch=f"{rosdistro}-release")
 
 
 def add_subparser(subparser):
@@ -151,7 +148,9 @@ def add_subparser(subparser):
         help="Pin a repository to a specific version. Format: repo_name=version"
     )
     parser.add_argument(
+        "--sync-date",
         "--date",
+        dest="sync_date",
         help="The date to use for the branch name (format: YYYY-MM-DD). If unspecified, current date is used."
     )
     parser.add_argument(
@@ -166,9 +165,9 @@ def add_subparser(subparser):
 def main(args):
     rosdistro = args.rosdistro.lower()
 
-    if args.date:
-        date_str = args.date
-        date_yyyymmdd = args.date.replace("-", "")
+    if args.sync_date:
+        date_str = args.sync_date
+        date_yyyymmdd = args.sync_date.replace("-", "")
     else:
         now = datetime.now(timezone.utc)
         date_str = now.strftime('%Y-%m-%d')

@@ -4,7 +4,7 @@ from string import Template
 
 import requests
 
-from rosboss.ui import display_and_interactive_copy, parse_tmpl_sections
+from rosboss.internal.ui import display_and_interactive_copy, parse_tmpl_sections
 
 
 def add_subparser(subparser):
@@ -18,7 +18,9 @@ def add_subparser(subparser):
         help="The name of the ROS distribution (e.g., humble, rolling)."
     )
     parser.add_argument(
+        "--sync-date",
         "--date",
+        dest="sync_date",
         help="The intended release date (format: YYYY-MM-DD). If unspecified, calculated automatically."
     )
     parser.add_argument(
@@ -62,8 +64,8 @@ def main(args):
     except requests.RequestException as e:
         print(f"Failed to fetch page due to connection error: {e}")
 
-    if args.date:
-        mapping['sync_target_date'] = args.date
+    if args.sync_date:
+        mapping['sync_target_date'] = args.sync_date
     else:
         sync_date = datetime.now(timezone.utc).date() + timedelta(days=2)
         while sync_date.weekday() > 4:

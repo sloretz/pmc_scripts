@@ -6,7 +6,7 @@ from string import Template
 import requests
 import rosdistro
 
-from rosboss.ui import display_and_interactive_copy, parse_tmpl_sections
+from rosboss.internal.ui import display_and_interactive_copy, parse_tmpl_sections
 
 arch_details_template = """[details=Updates to Ubuntu ${suite_title} (${arch})]
 
@@ -68,7 +68,9 @@ def add_subparser(subparser):
         help="The name of the ROS distribution (e.g., noetic, humble, rolling)."
     )
     parser.add_argument(
+        "--sync-date",
         "--date",
+        dest="sync_date",
         help="The actual day that the sync happened (format: YYYY-MM-DD). If unspecified, extracted from build logs."
     )
     parser.add_argument(
@@ -91,8 +93,8 @@ def main(args):
         sys.exit(f"Failed to fetch page :( status code {r.status_code}")
 
     content = r.text
-    if args.date:
-        sync_date = args.date
+    if args.sync_date:
+        sync_date = args.sync_date
     else:
         sync_date = re.search('computed at ([0-9]{4}-[0-9]{2}-[0-9]{2})', content).group(1)
 
