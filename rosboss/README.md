@@ -47,3 +47,11 @@ rosboss sync update-repos-file --rosdistro <distro> [--sync-date YYYY-MM-DD] [--
 ```
 Update the `ros2.repos` file on the distribution-specific release branch (e.g., `{distro}-release`) with the latest release versions.
 *Note:* You probably want to pin `ros2/system_tests` (e.g. `--pin ros2/system_tests=<commit_hash>`).
+
+### Start packaging jobs for a sync
+
+```bash
+rosboss sync start-packaging-jobs --rosdistro <distro> --ros2-commit <commit_or_tag> [--jenkins-user <user>] [--dry-run]
+```
+Gather packaging parameters and trigger packaging jobs on `ci.ros2.org`.
+

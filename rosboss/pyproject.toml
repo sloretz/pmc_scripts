@@ -12,6 +12,7 @@ dependencies = [
     "requests",
     "rosdistro",
     "rich",
+    "keyring",
 ]
 
 [project.scripts]
