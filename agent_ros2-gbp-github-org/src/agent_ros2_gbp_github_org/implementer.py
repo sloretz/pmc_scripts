@@ -16,7 +16,10 @@ Instructions:
 3. Apply the exact changes specified in the plan:
    - Create any new team .tf files with the exact specified locals and module blocks.
    - Modify existing .tf files (e.g. adding team members, adding repositories, updating 00-members.tf, updating 00-repositories.tf).
-4. Maintain exact formatting (2-space indents, trailing commas in lists, alphabetical ordering).
+4. Maintain exact formatting:
+   - 2-space indents, trailing commas in lists.
+   - Lists of members and repositories must follow standard ASCII alphabetical order (where uppercase letters precede lowercase letters).
+   - If adding a user, check existing `.tf` files to preserve canonical username capitalization if present.
 5. Do NOT commit the changes to git. Only write/edit the files in the workspace.
 """
 

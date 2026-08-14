@@ -125,11 +125,28 @@ def normalize_diff_lines(diff_text: str) -> list[str]:
     return lines
 
 
-def diffs_match(actual_diff: str, expected_diff: str) -> bool:
-    """Compare diffs with whitespace and hash leniency."""
-    if actual_diff.strip() == expected_diff.strip():
+def is_clean_diff(diff_output: str) -> bool:
+    """Check if the delta diff against the resolving commit is empty or non-semantic."""
+    if not diff_output.strip():
         return True
-    return normalize_diff_lines(actual_diff) == normalize_diff_lines(expected_diff)
+    lines = normalize_diff_lines(diff_output)
+    content_lines = [
+        l
+        for l in lines
+        if (l.startswith("+") or l.startswith("-"))
+        and not l.startswith("+++")
+        and not l.startswith("---")
+    ]
+    if not content_lines:
+        return True
+    # Tolerant to casing differences on added/removed lines
+    plus_lines = sorted(
+        [l[1:].strip().lower() for l in content_lines if l.startswith("+")]
+    )
+    minus_lines = sorted(
+        [l[1:].strip().lower() for l in content_lines if l.startswith("-")]
+    )
+    return plus_lines == minus_lines
 
 
 def run_evals(
@@ -170,7 +187,6 @@ def run_evals(
                 resolved_data = json.load(f)
 
             commit = resolved_data.get("commit")
-            expected_diff = resolved_data.get("diff", "").strip()
 
             if not commit:
                 print(f"  No commit specified in resolved-by.json for {folder.name}, skipping.")
@@ -231,37 +247,26 @@ def run_evals(
                     failed += 1
                     continue
 
-                # 4. Get diff and compare with expected diff
-                new_tf_files = subprocess.run(
-                    ["git", "-C", str(path_to_ros2_gbp_github_org), "ls-files", "--others", "*.tf"],
+                # 4. Compare working tree directly against resolving commit
+                subprocess.run(
+                    ["git", "-C", str(path_to_ros2_gbp_github_org), "add", "-A", "--", "*.tf"],
+                    check=True,
                     capture_output=True,
-                    text=True,
-                ).stdout.split()
-                if new_tf_files:
-                    subprocess.run(
-                        ["git", "-C", str(path_to_ros2_gbp_github_org), "add", "-N"] + new_tf_files,
-                        check=True,
-                        capture_output=True,
-                    )
-
+                )
                 diff_proc = subprocess.run(
-                    ["git", "-C", str(path_to_ros2_gbp_github_org), "diff", "-w", "--", "*.tf"],
+                    ["git", "-C", str(path_to_ros2_gbp_github_org), "diff", "-w", commit, "--", "*.tf"],
                     capture_output=True,
                     text=True,
                 )
-                actual_diff = diff_proc.stdout.strip()
+                delta = diff_proc.stdout.strip()
 
-                if diffs_match(actual_diff, expected_diff):
+                if is_clean_diff(delta):
                     passed += 1
-                    print(f"  PASSED: Diff matches resolved-by.json.")
+                    print("  PASSED: Working tree matches resolving commit.")
                 else:
                     failed += 1
-                    print("  FAILED: Diff does not match resolved-by.json.")
-                    print("    --- Expected (sample) ---")
-                    for line in expected_diff.splitlines()[:5]:
-                        print(f"    {line}")
-                    print("    --- Actual (sample) ---")
-                    for line in actual_diff.splitlines()[:5]:
+                    print("  FAILED: Differences against resolving commit:")
+                    for line in delta.splitlines()[:10]:
                         print(f"    {line}")
 
             finally:

@@ -44,7 +44,8 @@ Key repository conventions for ros2-gbp-github-org:
      }
      ```
    - All release repository names have `-release` appended.
-   - Lists of members and repositories are kept in alphabetical order.
+   - Lists of members and repositories are kept in standard ASCII alphabetical order (uppercase letters precede lowercase letters, matching standard sort).
+   - Check existing `.tf` files if a username has specific canonical capitalization.
 
 2. Global repository list (`00-repositories.tf`):
    - Contains `locals { organization_repositories = setunion(...) }`
