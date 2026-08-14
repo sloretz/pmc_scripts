@@ -1,4 +1,0 @@
-{
-  "commit": "460cb12c04fa2254a2922291ba8acbc0feabf44f",
-  "diff": "diff --git a/universal_robots.tf b/universal_robots.tf\nindex 55e104f..7e18572 100644\n--- a/universal_robots.tf\n+++ b/universal_robots.tf\n@@ -5,6 +5,7 @@ locals {\n   ]\n   universal_robots_repositories = [\n     \"Universal_Robots_Client_Library-release\",\n+    \"ur_description-release\",\n   ]\n }\n \n"
-}

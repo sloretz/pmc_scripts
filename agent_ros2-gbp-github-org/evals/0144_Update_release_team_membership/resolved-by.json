@@ -1,4 +1,0 @@
-{
-  "commit": "5ed8f91b405843d9d6a1c98d29fe3bc80912aaca",
-  "diff": "diff --git a/object_analytics.tf b/object_analytics.tf\nindex bac608e..0c662e3 100644\n--- a/object_analytics.tf\n+++ b/object_analytics.tf\n@@ -1,5 +1,7 @@\n locals {\n   object_analytics_team = [\n+    \"ChloeWu1\",\n+    \"lewisliupub\",\n   ]\n   object_analytics_repositories = [\n     \"ros2_object_analytics-release\",\n"
-}

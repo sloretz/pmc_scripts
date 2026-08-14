@@ -1,4 +1,0 @@
-{
-  "commit": "81766780d4740f9a1048bf2109b0ae57b28bdfa9",
-  "diff": "diff --git a/rqt.tf b/rqt.tf\nindex 80260e1..18fe4e9 100644\n--- a/rqt.tf\n+++ b/rqt.tf\n@@ -21,6 +21,7 @@ locals {\n     \"rqt_service_caller-release\",\n     \"rqt_shell-release\",\n     \"rqt_srv-release\",\n+    \"rqt_tf_tree-release\",\n     \"rqt_top-release\",\n     \"rqt_topic-release\",\n   ]\n"
-}

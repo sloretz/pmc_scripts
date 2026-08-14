@@ -1,4 +1,0 @@
-{
-  "commit": "3520a06f96c5563eedc40e93bcedb137aad59b3a",
-  "diff": "diff --git a/robotwebtools.tf b/robotwebtools.tf\nindex 41b3043..692cf9d 100644\n--- a/robotwebtools.tf\n+++ b/robotwebtools.tf\n@@ -1,5 +1,6 @@\n locals {\n   robotwebtools_team = [\n+    \"achim-k\",\n     \"amacneil\",\n     \"defunctzombie\",\n     \"dirk-thomas\",\n"
-}

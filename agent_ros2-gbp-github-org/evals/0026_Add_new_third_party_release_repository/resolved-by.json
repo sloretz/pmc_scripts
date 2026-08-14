@@ -1,4 +1,0 @@
-{
-  "commit": "bbf9504b62e81177e7df17c8f22ae6654ef9bb5f",
-  "diff": "diff --git a/sports.tf b/sports.tf\nindex 8240baa..a7d37ab 100644\n--- a/sports.tf\n+++ b/sports.tf\n@@ -6,6 +6,7 @@ locals {\n   sports_repositories = [\n     \"rcss3d_agent-release\",\n     \"ros_image_to_qimage-release\",\n+    \"rot_conv_lib-release\",\n     \"rqt_image_overlay-release\",\n   ]\n }\n"
-}

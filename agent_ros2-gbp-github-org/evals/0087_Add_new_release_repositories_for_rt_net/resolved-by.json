@@ -1,4 +1,0 @@
-{
-  "commit": "1748697d4a3615426f13d540745d9eeef312eb50",
-  "diff": "diff --git a/rt_net.tf b/rt_net.tf\nindex 0b08a8a..c0a9f95 100644\n--- a/rt_net.tf\n+++ b/rt_net.tf\n@@ -7,6 +7,11 @@ locals {\n   rt_net_repositories = [\n     \"raspimouse2-release\",\n     \"raspimouse_description-release\",\n+    \"raspimouse_ros2_examples-release\",\n+    \"raspimouse_slam_navigation_ros2-release\",\n+    \"rt_manipulators_cpp-release\",\n+    \"rt_usb_9axisimu_driver-release\",\n+    \"crane_plus-release\",\n   ]\n }\n \n"
-}

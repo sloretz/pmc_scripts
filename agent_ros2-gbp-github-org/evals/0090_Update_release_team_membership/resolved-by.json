@@ -1,4 +1,0 @@
-{
-  "commit": "cd97c2f18f3246e5cfb96d47e22dc60b05691282",
-  "diff": "diff --git a/rosbag2.tf b/rosbag2.tf\nindex 358fa71..28f8616 100644\n--- a/rosbag2.tf\n+++ b/rosbag2.tf\n@@ -2,6 +2,7 @@ locals {\n   rosbag2_team = [\n     \"Karsten1987\",\n     \"emersonknapp\",\n+    \"MichaelOrlov\",\n   ]\n \n   rosbag2_repositories = [\n"
-}

@@ -1,4 +1,0 @@
-{
-  "commit": "d4747e1689daf48cafe3be90a91df84a7fce2422",
-  "diff": "diff --git a/universal_robots.tf b/universal_robots.tf\nindex 7e18572..e8ae1a9 100644\n--- a/universal_robots.tf\n+++ b/universal_robots.tf\n@@ -5,7 +5,9 @@ locals {\n   ]\n   universal_robots_repositories = [\n     \"Universal_Robots_Client_Library-release\",\n+    \"Universal_Robots_ROS2_Driver-release\",\n     \"ur_description-release\",\n+    \"ur_msgs-release\",\n   ]\n }\n \n"
-}
