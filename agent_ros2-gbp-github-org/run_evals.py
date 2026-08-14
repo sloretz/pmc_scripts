@@ -94,22 +94,25 @@ def prompt_confirmation() -> bool:
 
 
 def reset_clone(path_to_ros2_gbp_github_org: Path, ref: str = "latest") -> None:
-    """Reset repository to a given git ref and clean untracked .tf files."""
+    """Reset repository to a given git ref and clean all uncommitted/untracked changes."""
+    subprocess.run(
+        ["git", "-C", str(path_to_ros2_gbp_github_org), "reset", "--hard", "HEAD"],
+        capture_output=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(path_to_ros2_gbp_github_org), "clean", "-fdx", "--", "*.tf"],
+        capture_output=True,
+    )
     subprocess.run(
         ["git", "-C", str(path_to_ros2_gbp_github_org), "checkout", "-f", ref],
         capture_output=True,
     )
-    untracked_tf = subprocess.run(
-        ["git", "-C", str(path_to_ros2_gbp_github_org), "ls-files", "--others", "*.tf"],
-        capture_output=True,
-        text=True,
-    ).stdout.split()
-    for rel_path in untracked_tf:
-        p = path_to_ros2_gbp_github_org / rel_path
-        if p.is_file():
-            p.unlink()
     subprocess.run(
         ["git", "-C", str(path_to_ros2_gbp_github_org), "reset", "--hard", "HEAD"],
+        capture_output=True,
+    )
+    subprocess.run(
+        ["git", "-C", str(path_to_ros2_gbp_github_org), "clean", "-fdx", "--", "*.tf"],
         capture_output=True,
     )
 
@@ -153,11 +156,23 @@ def run_evals(
     path_to_ros2_gbp_github_org: Path,
     limit: int | None = None,
     category: IssueCategory | str | None = None,
+    eval_number: str | None = None,
     model: str = "gemini-3.5-flash-lite",
 ) -> int:
     """Run evaluations across eval directories."""
     path_to_ros2_gbp_github_org = path_to_ros2_gbp_github_org.resolve()
     eval_folders = sorted([f for f in EVALS_DIR.iterdir() if f.is_dir()])
+
+    if eval_number is not None:
+        try:
+            eval_num_str = f"{int(eval_number):04d}"
+            eval_folders = [
+                f
+                for f in eval_folders
+                if f.name.startswith(eval_num_str) or f.name.startswith(eval_number)
+            ]
+        except ValueError:
+            eval_folders = [f for f in eval_folders if eval_number in f.name]
 
     if category is not None:
         marker = CATEGORY_TO_MARKER.get(category)
@@ -295,6 +310,12 @@ def main() -> None:
         help="Path to a git clone of https://github.com/ros2-gbp/ros2-gbp-github-org/",
     )
     parser.add_argument(
+        "--eval-number",
+        type=str,
+        default=None,
+        help="Run a specific eval test case by issue/eval number (e.g. 0711 or 711).",
+    )
+    parser.add_argument(
         "--limit",
         type=int,
         default=None,
@@ -326,6 +347,7 @@ def main() -> None:
             path_to_ros2_gbp_github_org=args.path_to_ros2_gbp_github_org,
             limit=args.limit,
             category=args.category,
+            eval_number=args.eval_number,
             model=args.model,
         )
     )
