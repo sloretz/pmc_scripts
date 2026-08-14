@@ -1,0 +1,37 @@
+{
+  "number": 35,
+  "title": "Update release team membership [pal_robotics]",
+  "author": "saikishor",
+  "state": "closed",
+  "created_at": "2022-03-31T20:10:01Z",
+  "updated_at": "2022-04-01T22:26:40Z",
+  "closed_at": "2022-04-01T17:08:51Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/35",
+  "body": "# Updates to pal_robotics membership.\r\n\r\n## New team members\r\n\r\n* @saikishor\r\n* @jordan-palacios\r\n* @lucamarchionni\r\nYou can find our access levels here: https://github.com/pal-robotics/backward_ros/commits/foxy-devel\r\n",
+  "comments": [
+    {
+      "id": 1085055569,
+      "author": "saikishor",
+      "created_at": "2022-03-31T20:12:45Z",
+      "updated_at": "2022-03-31T20:12:45Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/35#issuecomment-1085055569",
+      "body": "Hello from @pal-robotics team,\r\n\r\nCould you add all the above list of members to the list here: https://github.com/ros2-gbp/ros2-gbp-github-org/blob/latest/pal_robotics.tf?. It would make us easier to proceed with the releases of `backward_ros` package.\r\n\r\nThank you,"
+    },
+    {
+      "id": 1086182393,
+      "author": "nuclearsandwich",
+      "created_at": "2022-04-01T17:54:12Z",
+      "updated_at": "2022-04-01T17:54:12Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/35#issuecomment-1086182393",
+      "body": "#36 has now been deployed!"
+    },
+    {
+      "id": 1086384259,
+      "author": "saikishor",
+      "created_at": "2022-04-01T22:26:40Z",
+      "updated_at": "2022-04-01T22:26:40Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/35#issuecomment-1086384259",
+      "body": "Hello @nuclearsandwich,\r\n\r\nThank you so much!"
+    }
+  ]
+}

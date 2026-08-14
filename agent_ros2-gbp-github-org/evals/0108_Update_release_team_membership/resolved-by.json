@@ -1,0 +1,4 @@
+{
+  "commit": "1ce0de9e9226d872a42ed5ce559edc4513e05a3f",
+  "diff": "diff --git a/tooling_wg.tf b/tooling_wg.tf\nindex d883455..f083d0a 100644\n--- a/tooling_wg.tf\n+++ b/tooling_wg.tf\n@@ -3,6 +3,7 @@ locals {\n     \"MichaelOrlov\",\n     \"defunctzombie\",\n     \"emersonknapp\",\n+    \"james-rms\",\n     \"jhurliman\",\n     \"jtbandes\",\n     \"wep21\",\n"
+}

@@ -1,0 +1,21 @@
+{
+  "number": 90,
+  "title": "Update release team membership",
+  "author": "MichaelOrlov",
+  "state": "closed",
+  "created_at": "2022-08-05T03:13:57Z",
+  "updated_at": "2022-08-09T17:27:33Z",
+  "closed_at": "2022-08-09T17:27:33Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/90",
+  "body": "# Updates to `rosbag2` membership.\r\n\r\n## New team members\r\n\r\n* [@MichaelOrlov](https://github.com/ros2/rosbag2/blob/rolling/rosbag2/package.xml)\r\n",
+  "comments": [
+    {
+      "id": 1209662591,
+      "author": "cottsay",
+      "created_at": "2022-08-09T17:27:33Z",
+      "updated_at": "2022-08-09T17:27:33Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/90#issuecomment-1209662591",
+      "body": "Deployed in #91"
+    }
+  ]
+}

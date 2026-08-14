@@ -1,0 +1,4 @@
+{
+  "commit": "ee44fc5102ad652302faf77e8001114d20c2757c",
+  "diff": "diff --git a/apriltag.tf b/apriltag.tf\nindex 5980eff..f945a50 100644\n--- a/apriltag.tf\n+++ b/apriltag.tf\n@@ -7,6 +7,8 @@ locals {\n   ]\n   apriltag_repositories = [\n     \"apriltag-release\",\n+    \"apriltag_msgs-release\",\n+    \"apriltag_ros-release\",\n   ]\n }\n \n"
+}

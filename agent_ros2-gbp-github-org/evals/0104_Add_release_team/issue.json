@@ -1,0 +1,29 @@
+{
+  "number": 104,
+  "title": "Add release team",
+  "author": "bjsowa",
+  "state": "closed",
+  "created_at": "2022-08-24T11:08:25Z",
+  "updated_at": "2022-08-29T22:51:11Z",
+  "closed_at": "2022-08-29T22:42:37Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/104",
+  "body": "* Name of the new release team: fictionlab\r\n* Release repositories to add:\r\n  * [leo_common](https://github.com/LeoRover/leo_common-ros2)\r\n    * [x] There is an existing release repository which should be imported: https://github.com/fictionlab-gbp/leo_common-ros2-release\r\n  * [leo_robot](https://github.com/LeoRover/leo_robot-ros2)\r\n    * [x] There is an existing release repository which should be imported: https://github.com/fictionlab-gbp/leo_robot-ros2-release\r\n  * [leo_desktop](https://github.com/LeoRover/leo_desktop-ros2)\r\n    * [x] There is an existing release repository which should be imported: https://github.com/fictionlab-gbp/leo_desktop-ros2-release\r\n\r\n* Team members\r\n  * @bjsowa\r\n  * @szlachcic\r\n  * @Bitterisland6\r\n",
+  "comments": [
+    {
+      "id": 1225581611,
+      "author": "bjsowa",
+      "created_at": "2022-08-24T11:17:57Z",
+      "updated_at": "2022-08-24T11:17:57Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/104#issuecomment-1225581611",
+      "body": "The `ros2` keyword in the imported release repositories should be omitted.  "
+    },
+    {
+      "id": 1230950112,
+      "author": "nuclearsandwich",
+      "created_at": "2022-08-29T22:51:10Z",
+      "updated_at": "2022-08-29T22:51:10Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/104#issuecomment-1230950112",
+      "body": "The above release repositories have been imported. This change has been deployed!"
+    }
+  ]
+}

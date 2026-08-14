@@ -1,0 +1,21 @@
+{
+  "number": 21,
+  "title": "Add new release repositories",
+  "author": "fmauch",
+  "state": "closed",
+  "created_at": "2022-03-17T16:00:01Z",
+  "updated_at": "2022-03-30T18:23:21Z",
+  "closed_at": "2022-03-30T18:23:21Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/21",
+  "body": "* Name of the release team: universal_robots_team\r\n\r\n* Release repositories to add:\r\n  * [ur_description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description)",
+  "comments": [
+    {
+      "id": 1083284434,
+      "author": "fmauch",
+      "created_at": "2022-03-30T15:26:16Z",
+      "updated_at": "2022-03-30T15:26:16Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/21#issuecomment-1083284434",
+      "body": "@nuclearsandwich it would be nice if we could get the release repository so we can actually do the release."
+    }
+  ]
+}

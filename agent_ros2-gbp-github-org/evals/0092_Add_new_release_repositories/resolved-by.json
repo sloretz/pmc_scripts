@@ -1,0 +1,4 @@
+{
+  "commit": "4c4d9c8d8c54457087889599e0dfc110d0f58882",
+  "diff": "diff --git a/sports.tf b/sports.tf\nindex 126c187..9f4f595 100644\n--- a/sports.tf\n+++ b/sports.tf\n@@ -12,7 +12,9 @@ locals {\n     \"rot_conv_lib-release\",\n     \"rqt_image_overlay-release\",\n     \"soccer_interfaces-release\",\n+    \"soccer_vision_2d_layers-release\",\n     \"soccer_vision_3d_rviz_markers-release\",\n+    \"vision_msgs_layers-release\",\n   ]\n }\n \n"
+}

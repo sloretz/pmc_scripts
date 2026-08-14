@@ -1,0 +1,29 @@
+{
+  "number": 82,
+  "title": "Add release team",
+  "author": "ShotaAk",
+  "state": "closed",
+  "created_at": "2022-07-13T02:29:13Z",
+  "updated_at": "2022-07-15T03:25:38Z",
+  "closed_at": "2022-07-14T18:00:37Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/82",
+  "body": "* Name of the new release team: rt_net<!-- all lower case with words separated by `_`. -->\r\n* Release repositories to add:\r\n  * [raspimouse_description](https://github.com/rt-net/raspimouse_description)\r\n    * [x] There is an existing release repository which should be imported: <RELEASE REPOSITORY URL>\r\n  * [raspimouse2](https://github.com/rt-net/raspimouse2)\r\n    * [x] There is an existing release repository which should be imported: https://github.com/rt-net/raspimouse2-release<RELEASE REPOSITORY URL>\r\n\r\n* Team members\r\n  * [@ShotaAk](https://github.com/rt-net/raspimouse_description/blob/04a3d1f1abce0d7fdd71c0d9a4adfdeee955ff7b/package.xml#L9)\r\n  * [@shu-rt](https://github.com/rt-net/raspimouse_description/blob/04a3d1f1abce0d7fdd71c0d9a4adfdeee955ff7b/package.xml#L10)\r\n  * [@Tiryoh](https://github.com/rt-net/raspimouse_description/blob/04a3d1f1abce0d7fdd71c0d9a4adfdeee955ff7b/package.xml#L8)\r\n",
+  "comments": [
+    {
+      "id": 1184742720,
+      "author": "nuclearsandwich",
+      "created_at": "2022-07-14T18:00:37Z",
+      "updated_at": "2022-07-14T18:00:37Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/82#issuecomment-1184742720",
+      "body": "#82 has been merged and deployed."
+    },
+    {
+      "id": 1185135822,
+      "author": "Tiryoh",
+      "created_at": "2022-07-15T03:25:38Z",
+      "updated_at": "2022-07-15T03:25:38Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/82#issuecomment-1185135822",
+      "body": "@nuclearsandwich Thanks!"
+    }
+  ]
+}

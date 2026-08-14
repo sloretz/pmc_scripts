@@ -1,0 +1,4 @@
+{
+  "commit": "ef30c0c3a28ac0afb8c9fbf9ae986dfaf3d7539c",
+  "diff": "diff --git a/ijnek.tf b/ijnek.tf\nindex 9809e94..2dbc551 100644\n--- a/ijnek.tf\n+++ b/ijnek.tf\n@@ -3,7 +3,9 @@ locals {\n     \"ijnek\",\n   ]\n   ijnek_repositories = [\n+    \"nao_button_sim-release\",\n     \"nao_interfaces-release\",\n+    \"nao_lola-release\",\n     \"soccer_object_msgs-release\",\n     \"soccer_visualization-release\",\n   ]\n"
+}

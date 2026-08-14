@@ -1,0 +1,37 @@
+{
+  "number": 109,
+  "title": "Add new release repositories",
+  "author": "christianrauch",
+  "state": "closed",
+  "created_at": "2022-08-27T21:26:13Z",
+  "updated_at": "2023-01-14T01:48:31Z",
+  "closed_at": "2023-01-14T01:18:45Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/109",
+  "body": "* Name of the release team: apriltag\r\n\r\n* Release repositories to add:\r\n  * [apriltag_msgs](https://github.com/christianrauch/apriltag_msgs.git)\r\n  * [apriltag_ros](https://github.com/christianrauch/apriltag_ros.git)\r\n",
+  "comments": [
+    {
+      "id": 1242346308,
+      "author": "nuclearsandwich",
+      "created_at": "2022-09-09T18:48:36Z",
+      "updated_at": "2022-09-09T18:48:36Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/109#issuecomment-1242346308",
+      "body": "Closing as a sibling of https://github.com/ros2-gbp/ros2-gbp-github-org/issues/108 to be re-opened once the associated discussions are settled."
+    },
+    {
+      "id": 1366589039,
+      "author": "christianrauch",
+      "created_at": "2022-12-28T11:41:47Z",
+      "updated_at": "2022-12-28T11:41:47Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/109#issuecomment-1366589039",
+      "body": "The issue has been settled: https://github.com/AprilRobotics/apriltag_ros/issues/76#issuecomment-1324875645. Please reopen and consider adding the release repos for ROS2."
+    },
+    {
+      "id": 1382628829,
+      "author": "nuclearsandwich",
+      "created_at": "2023-01-14T01:48:31Z",
+      "updated_at": "2023-01-14T01:48:31Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/109#issuecomment-1382628829",
+      "body": "This change has been deployed."
+    }
+  ]
+}

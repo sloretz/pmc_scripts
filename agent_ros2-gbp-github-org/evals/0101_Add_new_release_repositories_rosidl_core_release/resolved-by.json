@@ -1,0 +1,4 @@
+{
+  "commit": "8801a95c7bb0ade4238f1e6de7893e377f9c9a18",
+  "diff": "diff --git a/00-ros2_core.tf b/00-ros2_core.tf\nindex d6d8b75..8b8ad59 100644\n--- a/00-ros2_core.tf\n+++ b/00-ros2_core.tf\n@@ -37,7 +37,7 @@ locals {\n     \"rclpy-release\",\n     \"ros2cli_common_extensions-release\",\n     \"ros_environment-release\",\n-    \"rosidl_defaults-release\",\n+    \"rosidl_core-release\",\n     \"rosidl_defaults-release\",\n     \"sros2-release\",\n   ]\n"
+}

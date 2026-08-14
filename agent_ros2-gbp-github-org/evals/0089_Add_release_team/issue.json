@@ -1,0 +1,37 @@
+{
+  "number": 89,
+  "title": "Add release team",
+  "author": "joshnewans",
+  "state": "closed",
+  "created_at": "2022-07-30T00:01:08Z",
+  "updated_at": "2022-08-18T21:25:40Z",
+  "closed_at": "2022-08-18T21:25:39Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/89",
+  "body": "*The instructions said that an individual's name is ok, but none of the others currently in the repo seem to be. My package/s will be too small to warrant per-package teams either. I've gone with my name anyway as it matches my Github username, but also happy to go with my \"brand\" articulated_robotics if that is preferred, in the case of future maintainers joining my projects.*\r\n* Name of the new release team: josh_newans \r\n* Release repositories to add:\r\n  * [twist_stamper](https://github.com/joshnewans/twist_stamper)\r\n    * [x] There is an existing release repository which should be imported: https://github.com/joshnewans/twist_stamper-release\r\n\r\n\r\n* Team members\r\n  * @joshnewans [Maintainer tag](https://github.com/joshnewans/twist_stamper/blob/32e0eed68c76d9d3fa64b54e8313aa9a6d6bd99d/package.xml#L7)",
+  "comments": [
+    {
+      "id": 1210080702,
+      "author": "ijnek",
+      "created_at": "2022-08-10T02:33:43Z",
+      "updated_at": "2022-08-10T02:33:43Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/89#issuecomment-1210080702",
+      "body": "Although there aren't many, here are some:\r\n* https://github.com/ros2-gbp/ros2-gbp-github-org/blob/latest/wep21.tf\r\n* https://github.com/ros2-gbp/ros2-gbp-github-org/blob/latest/ijnek.tf"
+    },
+    {
+      "id": 1212701910,
+      "author": "joshnewans",
+      "created_at": "2022-08-12T03:47:06Z",
+      "updated_at": "2022-08-12T03:47:06Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/89#issuecomment-1212701910",
+      "body": "Hey @cottsay  I thought I'd tag as I saw you were updating some of the other requests yesterday.\r\nWould it be possible to get mine pushed through so I can move forward with releasing my package to newer distros?\r\nThanks :)"
+    },
+    {
+      "id": 1219980714,
+      "author": "cottsay",
+      "created_at": "2022-08-18T21:25:39Z",
+      "updated_at": "2022-08-18T21:25:39Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/89#issuecomment-1219980714",
+      "body": "Deployed in #100."
+    }
+  ]
+}

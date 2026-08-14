@@ -1,0 +1,29 @@
+{
+  "number": 39,
+  "title": "Add new release repositories",
+  "author": "fmauch",
+  "state": "closed",
+  "created_at": "2022-04-08T12:30:39Z",
+  "updated_at": "2022-04-11T20:54:49Z",
+  "closed_at": "2022-04-11T20:54:49Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/39",
+  "body": "* Name of the release team: universal_robots_team\r\n\r\n* Release repositories to add:\r\n  * [ur_msgs](https://github.com/ros-industrial/ur_msgs)\r\n    * The existing release repository will still be used for ROS1\r\n  * [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver)\r\n\r\nThank you very much!",
+  "comments": [
+    {
+      "id": 1095505327,
+      "author": "nuclearsandwich",
+      "created_at": "2022-04-11T19:57:07Z",
+      "updated_at": "2022-04-11T19:57:07Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/39#issuecomment-1095505327",
+      "body": "@fmauch these are both new release repositories correct?"
+    },
+    {
+      "id": 1095509743,
+      "author": "fmauch",
+      "created_at": "2022-04-11T20:01:02Z",
+      "updated_at": "2022-04-11T20:01:02Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/39#issuecomment-1095509743",
+      "body": "Yes, exactly."
+    }
+  ]
+}

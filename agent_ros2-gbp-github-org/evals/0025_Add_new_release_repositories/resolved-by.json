@@ -1,0 +1,4 @@
+{
+  "commit": "f6ca6bf2a7628a21d8a88a3ecc6bbd5e90f45ff6",
+  "diff": "diff --git a/mrpt2.tf b/mrpt2.tf\nindex 5719975..d1726f5 100644\n--- a/mrpt2.tf\n+++ b/mrpt2.tf\n@@ -5,6 +5,11 @@ locals {\n   ]\n   mrpt2_repositories = [\n     \"mrpt2-release\",\n+    \"mrpt_msgs-release\",\n+    \"mrpt_navigation-release\",\n+    \"mrpt_sensors-release\",\n+    \"mrpt_slam-release\",\n+    \"pose_cov_ops-release\",\n   ]\n }\n \n"
+}

@@ -1,0 +1,12 @@
+{
+  "number": 134,
+  "title": "Update release team membership",
+  "author": "achim-k",
+  "state": "closed",
+  "created_at": "2022-10-05T16:40:53Z",
+  "updated_at": "2022-10-11T21:48:21Z",
+  "closed_at": "2022-10-11T21:48:21Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/134",
+  "body": "# Updates to robotwebtools membership.\r\n\r\n## New team members\r\n\r\n* [@achim-k](https://github.com/RobotWebTools/rosbridge_suite/pull/801)\r\n",
+  "comments": []
+}

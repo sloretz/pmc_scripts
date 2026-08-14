@@ -1,0 +1,4 @@
+{
+  "commit": "fbcc7e899fd585c9bf59248d7e3c1150fe6cdd71",
+  "diff": "diff --git a/acceleration_wg.tf b/acceleration_wg.tf\nindex 5577c79..019c32f 100644\n--- a/acceleration_wg.tf\n+++ b/acceleration_wg.tf\n@@ -4,6 +4,7 @@ locals {\n     \"vmayoral\",\n   ]\n   acceleration_wg_repositories = [\n+    \"adaptive_component-release\",\n     \"ament_acceleration-release\",\n     \"ament_vitis-release\",\n     \"ros2acceleration-release\",\n"
+}

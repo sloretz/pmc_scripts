@@ -1,0 +1,29 @@
+{
+  "number": 97,
+  "title": "Add new release repositories",
+  "author": "arne48",
+  "state": "closed",
+  "created_at": "2022-08-13T10:12:38Z",
+  "updated_at": "2022-08-25T00:01:35Z",
+  "closed_at": "2022-08-23T23:33:41Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/97",
+  "body": "* Name of the release team: rqt\r\n\r\n* Release repositories to add:\r\n  * [ros-visualization/rqt_tf_tree](https://github.com/ros-visualization/rqt_tf_tree)\r\n    * [ ] There is an existing release repository which should be imported: [ros2-gbp/rqt_tf_tree-release](https://github.com/ros2-gbp/rqt_tf_tree-release)\r\n\r\nCurrently it turns out to be complicated to release a new version of rqt_tf_tree for humble.\r\nI was told  ([https://github.com/ros-visualization/rqt_tf_tree/issues/42](https://github.com/ros-visualization/rqt_tf_tree/issues/42)) that the correct way to talk about permission topics are issues an PRs in this repository as permissions are automatically generated for the ROS2 release repositories.\r\nThe problem with missing releases was also already brought up on [discourse](https://discourse.ros.org/t/preparing-for-humble-sync-2022-08-17/26882).\r\nI actually don't know why this specific rqt repository is not part of the list of repositories available to the rqt release maintainers but maybe it is possible to add this now so we can release rqt_tf_tree for new distributions.\r\n",
+  "comments": [
+    {
+      "id": 1224991918,
+      "author": "nuclearsandwich",
+      "created_at": "2022-08-23T23:32:50Z",
+      "updated_at": "2022-08-23T23:32:50Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/97#issuecomment-1224991918",
+      "body": "> I actually don't know why this specific rqt repository is not part of the list of repositories available to the rqt release maintainers but maybe it is possible to add this now so we can release rqt_tf_tree for new distributions.\r\n\r\nWhen this repository was originally configured it permissions were set based on prior activity. Since the previous releases were made by ROS 2 core team members, that was the first place I added the repository. I've opened a PR which will give release permissions to the rqt team as well."
+    },
+    {
+      "id": 1226613629,
+      "author": "arne48",
+      "created_at": "2022-08-25T00:01:35Z",
+      "updated_at": "2022-08-25T00:01:35Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/97#issuecomment-1226613629",
+      "body": "Thank you very much for the explanation @nuclearsandwich. I guessed it must have been something of that nature.\r\nAnd also thank very much for already opening a PR. :)"
+    }
+  ]
+}

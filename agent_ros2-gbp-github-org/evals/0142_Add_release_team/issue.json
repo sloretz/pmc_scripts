@@ -1,0 +1,53 @@
+{
+  "number": 142,
+  "title": "Add release team",
+  "author": "christianrauch",
+  "state": "closed",
+  "created_at": "2022-10-23T15:40:27Z",
+  "updated_at": "2023-03-02T02:16:52Z",
+  "closed_at": "2023-03-02T01:57:18Z",
+  "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142",
+  "body": "* Name of the new release team: `libcamera`\r\n* Release repositories to add:\r\n  * [libcamera](https://git.libcamera.org/libcamera/libcamera.git)\r\n  * [camera_ros](https://github.com/christianrauch/camera_ros.git)\r\n\r\n* Team members\r\n  * @christianrauch\r\n",
+  "comments": [
+    {
+      "id": 1310742785,
+      "author": "nuclearsandwich",
+      "created_at": "2022-11-10T18:40:03Z",
+      "updated_at": "2022-11-10T18:40:03Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142#issuecomment-1310742785",
+      "body": "Holding off on this pending the discussion in https://github.com/ros/rosdistro/pull/35029\r\n\r\nIf it's possible to release camera_ros on top of the libcamera version in Ubuntu Jammy I can set up that release repo even though it won't be releasable until the rosdep keys are updated."
+    },
+    {
+      "id": 1310937650,
+      "author": "christianrauch",
+      "created_at": "2022-11-10T21:39:35Z",
+      "updated_at": "2022-11-10T21:39:35Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142#issuecomment-1310937650",
+      "body": "> If it's possible to release camera_ros on top of the libcamera version in Ubuntu Jammy\r\n\r\nThis is not possible since the system version uses an outdated API. Even if I would support both APIs via manual ifdefs, I see no value in releasing a ROS package that relies on an outdated camera driver library with limited functionality and support for cameras.\r\n"
+    },
+    {
+      "id": 1314640458,
+      "author": "nuclearsandwich",
+      "created_at": "2022-11-15T01:41:05Z",
+      "updated_at": "2022-11-15T01:41:05Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142#issuecomment-1314640458",
+      "body": "> This is not possible since the system version uses an outdated API. Even if I would support both APIs via manual ifdefs, I see no value in releasing a ROS package that relies on an outdated camera driver library with limited functionality and support for cameras.\r\n\r\nThanks for the info, sounds good. Not knowing the exact situation myself I was trying to identify possible ways to make progress without blocking on the larger issue. With the info you've given I'm going to close this issue while we resolve things in the other discussion."
+    },
+    {
+      "id": 1447129354,
+      "author": "christianrauch",
+      "created_at": "2023-02-27T21:35:23Z",
+      "updated_at": "2023-02-27T21:35:23Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142#issuecomment-1447129354",
+      "body": "In the original discussion, we concluded (https://github.com/ros/rosdistro/pull/35029#issuecomment-1424914549) that the system libcamera package is broken and will not be fixed for Ubuntu 22.04, and thus that we can provide a `libcamera` bloomed package for Ubuntu 22.04 and use rosdep keys for distributions that have a working version of libcamera.\r\n\r\n@nuclearsandwich Would you now consider adding the initially requested release repos?"
+    },
+    {
+      "id": 1451173267,
+      "author": "nuclearsandwich",
+      "created_at": "2023-03-02T02:16:52Z",
+      "updated_at": "2023-03-02T02:16:52Z",
+      "html_url": "https://github.com/ros2-gbp/ros2-gbp-github-org/issues/142#issuecomment-1451173267",
+      "body": "This change has been deployed!"
+    }
+  ]
+}
