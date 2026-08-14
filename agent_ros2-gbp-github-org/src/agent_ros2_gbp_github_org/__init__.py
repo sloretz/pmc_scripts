@@ -9,6 +9,7 @@ from agent_ros2_gbp_github_org.categories import (
     UknownCategory,
 )
 from agent_ros2_gbp_github_org.categorize import categorize_issue
+from agent_ros2_gbp_github_org.planner import TerraformConfigPlanner
 
 __version__ = "0.1.0"
 
@@ -20,4 +21,5 @@ __all__ = [
     "UnknownCategory",
     "UknownCategory",
     "categorize_issue",
+    "TerraformConfigPlanner",
 ]
