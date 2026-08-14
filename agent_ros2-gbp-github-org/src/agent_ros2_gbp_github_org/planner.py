@@ -89,9 +89,11 @@ class TerraformConfigPlanner:
         self,
         workspace: Path,
         api_key: str | None = None,
+        model: str = "gemini-3.5-flash-lite",
     ):
         self.workspace = Path(workspace).resolve()
         self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        self.model = model
 
     async def plan(
         self,
@@ -109,6 +111,7 @@ class TerraformConfigPlanner:
         """
         config = LocalAgentConfig(
             api_key=self.api_key,
+            model=self.model,
             workspaces=[str(self.workspace)],
             system_instructions=PLANNER_SYSTEM_INSTRUCTIONS,
             capabilities=types.CapabilitiesConfig(
