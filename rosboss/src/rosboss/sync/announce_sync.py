@@ -6,6 +6,7 @@ from string import Template
 import requests
 import rosdistro
 
+from rosboss.internal.anubis import detect_anubis
 from rosboss.internal.ui import display_and_interactive_copy, parse_tmpl_sections
 
 arch_details_template = """[details=Updates to Ubuntu ${suite_title} (${arch})]
@@ -74,6 +75,10 @@ def add_subparser(subparser):
         help="The actual day that the sync happened (format: YYYY-MM-DD). If unspecified, extracted from build logs."
     )
     parser.add_argument(
+        "--log-file",
+        help="Path to downloaded plain text build log (consoleText). If provided, skips downloading from Jenkins."
+    )
+    parser.add_argument(
         "--no-interactive",
         action="store_true",
         help="Disable interactive copy menu."
@@ -87,16 +92,39 @@ def main(args):
     distro_lower = rosdistro_arg.lower()
     distro_title = rosdistro_arg.capitalize()
     distro_char = distro_lower[0].upper()
+    job_name = f"{distro_char}rel_sync-packages-to-main"
 
-    r = requests.get(f'https://build.ros2.org/job/{distro_char}rel_sync-packages-to-main/lastSuccessfulBuild/consoleText')
-    if r.status_code != 200:
-        sys.exit(f"Failed to fetch page :( status code {r.status_code}")
+    if args.log_file:
+        try:
+            with open(args.log_file, "r", encoding="utf-8", errors="replace") as f:
+                content = f.read()
+        except OSError as e:
+            sys.exit(f"Failed to read log file '{args.log_file}': {e}")
+        if detect_anubis(content):
+            sys.exit(
+                f"Bot protection (Anubis) challenge page detected in log file '{args.log_file}'.\n"
+                f"Please download the plain text consoleText logs from the latest {job_name} job in your browser."
+            )
+    else:
+        url = f"https://build.ros2.org/job/{job_name}/lastSuccessfulBuild/consoleText"
+        r = requests.get(url)
+        if r.status_code != 200:
+            sys.exit(f"Failed to fetch page :( status code {r.status_code}")
 
-    content = r.text
+        content = r.text
+        if detect_anubis(content, response=r):
+            sys.exit(
+                f"Bot protection (Anubis) detected when fetching logs from {url}.\n"
+                f"Please download the consoleText logs from the latest {job_name} job in your browser and pass the file using --log-file."
+            )
+
     if args.sync_date:
         sync_date = args.sync_date
     else:
-        sync_date = re.search('computed at ([0-9]{4}-[0-9]{2}-[0-9]{2})', content).group(1)
+        match = re.search('computed at ([0-9]{4}-[0-9]{2}-[0-9]{2})', content)
+        if not match:
+            sys.exit("Could not find sync date ('computed at YYYY-MM-DD') in the log content. Specify it manually with --sync-date.")
+        sync_date = match.group(1)
 
     suite = get_ubuntu_codename(distro_lower)
 
