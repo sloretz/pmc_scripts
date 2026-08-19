@@ -14,11 +14,29 @@ console = Console()
 
 
 def copy_to_clipboard(text: str) -> bool:
-    """Copy text to OS clipboard using OSC 52 ANSI escape sequence and fallback tools."""
+    """Copy text to OS clipboard using local clipboard tools first, falling back to OSC 52 ANSI escape sequence."""
     text_bytes = text.encode("utf-8")
-    b64_text = base64.b64encode(text_bytes).decode("ascii")
 
-    # 1. OSC 52 escape sequence (works over SSH, VSCode Terminal, iTerm2, Kitty, tmux, etc.)
+    # 1. Try local display tools first if available (avoids OSC 52 length truncation limits in terminal emulators)
+    has_display = bool(os.environ.get("DISPLAY") or os.environ.get("WAYLAND_DISPLAY") or sys.platform == "darwin")
+    if has_display:
+        tools = [
+            ["wl-copy"],
+            ["xclip", "-selection", "clipboard"],
+            ["xsel", "--clipboard", "--input"],
+            ["pbcopy"],
+        ]
+        for cmd in tools:
+            try:
+                p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
+                p.communicate(input=text_bytes)
+                if p.returncode == 0:
+                    return True
+            except OSError:
+                continue
+
+    # 2. Fallback to OSC 52 escape sequence (works over SSH, VSCode Terminal, iTerm2, Kitty, tmux, etc.)
+    b64_text = base64.b64encode(text_bytes).decode("ascii")
     if "TMUX" in os.environ:
         osc52_seq = f"\x1bPtmux;\x1b\x1b]52;c;{b64_text}\x07\x1b\\"
     else:
@@ -27,25 +45,9 @@ def copy_to_clipboard(text: str) -> bool:
     try:
         sys.stdout.write(osc52_seq)
         sys.stdout.flush()
+        return True
     except Exception:  # noqa: BLE001, S110
-        pass
-
-    # 2. Fallback / local display tools
-    tools = [
-        ["xclip", "-selection", "clipboard"],
-        ["xclip", "-selection", "primary"],
-        ["xsel", "--clipboard", "--input"],
-        ["wl-copy"],
-        ["pbcopy"],
-    ]
-    for cmd in tools:
-        try:
-            p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=subprocess.DEVNULL)
-            p.communicate(input=text_bytes)
-        except OSError:
-            continue
-
-    return True
+        return False
 
 
 def pretty_command(cmd, cwd=None, check=True, capture_output=True):
